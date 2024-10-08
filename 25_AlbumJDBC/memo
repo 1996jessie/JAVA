@@ -1,0 +1,46 @@
+ 수신자 모두
+drop sequence albumseq;
+create sequence albumseq
+	increment by 1
+	start with 1 
+	minvalue 1
+	maxvalue 100;
+
+
+drop table albums;
+create table albums(
+num number primary key,
+song varchar2(30) not null,
+singer varchar2(30) not null,
+company varchar2(20) not null,
+price number  default 0,
+pub_day date default sysdate
+);
+
+insert into albums(num,song,singer,company,price,pub_day)
+values(albumseq.nextval,'바운스','조용필','다음',5000,'2014/1/26');
+
+insert into albums(num,song,singer,company,pub_day)
+values(albumseq.nextval,'미스코리아','이효리','네이버','2014/1/26');
+
+insert into albums(num,song,singer,company,price,pub_day)
+values(albumseq.nextval,'badgirl','이효리','네이버',1000,'2012/1/06');
+
+
+insert into albums(num,song,singer,company,price,pub_day)
+values(albumseq.nextval,'허공','조용필','네이버',7000,'2014/3/26');
+
+insert into albums(num,song,singer,company,price,pub_day)
+values(albumseq.nextval,'허공','조용필','네이버',3000,'2011/2/26');
+
+insert into albums(num,song,singer,company,pub_day)
+values(albumseq.nextval,'hello','조용필','구글','2013/7/1');
+
+insert into albums(num,song,singer,company,price,pub_day)
+values(albumseq.nextval,'좋은 날','아이유','다음',2000,'2006/12/3');
+
+insert into albums(num,song,singer,company,price,pub_day)
+values(albumseq.nextval,'마시멜로','아이유','네이버',4000,'2001/4/7');
+
+insert into albums(num,song,singer,company,price)
+values(albumseq.nextval,'단발머리','조용필','다음',8000);

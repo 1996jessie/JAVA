@@ -1,0 +1,43 @@
+drop table producer cascade constraints;
+create table producer(
+	code varchar2(10) primary key ,
+	pname varchar2(10),
+	pprice number
+);
+
+drop table consumer;
+create table consumer(
+	code varchar2(10) unique references producer(code) on delete set null,
+	cname varchar2(10),
+	cprice number,
+	caddr varchar2(10)
+);
+
+insert into producer
+values('A01','운동화',1000);
+
+insert into producer
+values('A02','원피스',2000);
+
+insert into producer
+values('A03','바지',3000);
+
+insert into consumer
+values('A01','전지현',1100,'서울');
+
+insert into consumer
+values('A02','김수현',2100,'부산');
+
+insert into consumer
+values('A03','아이유',3100,'제주');
+
+-- 추가함
+insert into consumer
+values('A04','태연',3100,'제주');
+
+insert into producer
+values('A05','가방',4000);
+
+commit;
+select * from producer;
+select * from consumer;

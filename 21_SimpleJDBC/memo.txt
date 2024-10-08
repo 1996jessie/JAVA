@@ -1,0 +1,27 @@
+drop table test;
+
+create table test (
+	num number,
+	name varchar2(10),
+	addr varchar2(10)
+);
+
+insert into test values(1,'아이유','서울');
+insert into test values(2,'김연아','제주');
+insert into test values(3,'손흥민','부산');
+commit;
+insert into test values(4,'박세리','광주');(커밋 안하면 java에는 안 나옴)
+모든 과정은 커밋하지 않으면 java에서 나오지 않음
+
+select * from test;
+
+[DBC 프로그래밍 단계]
+0. jar 파일 포함
+1. 드라이버 로드 Class.forName("");
+2. 계정에 접속 Connection x = DriverManager.getConnection(a,b,c);
+3. sql문 분석 PreparedStatement ps = conn.prepareStatement(sql);
+			분석했는데 ? 있으면 값 채워넣기(ps.setInt(1, a), ps.setString(2,b))
+			1,2,3 : ?의 위치
+4. sql문 실행 select : ResultSet rs = ps.executeQuery();
+			insert, update, delete : int cnt = ps.executeUpdate();
+5. 접속 끊기 conn.close();

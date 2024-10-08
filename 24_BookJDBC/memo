@@ -1,0 +1,27 @@
+drop sequence bseq ;
+create sequence bseq 
+	increment by 1
+	start with 1
+	minvalue 1
+	nocache ;
+	
+
+drop table book purge ;
+create table book(
+	no number primary key,
+	title varchar2(20) not null,  
+	author varchar2(20) not null, 
+	publisher varchar2(20),
+	price number not null,
+	pub_day date default sysdate
+);
+
+
+-- 샘플 데이터 넣기
+insert into book values(bseq.nextval,'봉순이 언니','공지영','한겨레출판',5000,'2013-10-15');
+insert into book values(bseq.nextval,'7년의 밤','정유정','은행나무',8000,'2011-03-23');
+insert into book values(bseq.nextval,'해리포터','조앤롤링','문학수첩',3000,'2007-11-15');
+insert into book values(bseq.nextval,'국화옆에서','서정주','민음사',4000,'2001-08-16');
+insert into book values(bseq.nextval,'아리랑','조정래','해냄출판사',9000,'2007-01-30');
+
+commit ;
