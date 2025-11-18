@@ -10,11 +10,11 @@ public class ProductsBean {
 
 	public ProductsBean(int id, String name, int stock, int price, String category, String inputdate) {
 		super();
-		this.id = id;
-		this.name = name;
-		this.stock = stock;
-		this.price = price;
-		this.category = category;
+		this.id        = id;
+		this.name      = name;
+		this.stock     = stock;
+		this.price     = price;
+		this.category  = category;
 		this.inputdate = inputdate;
 	}
 	
